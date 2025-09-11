@@ -1,0 +1,14 @@
+server:
+  port: 8822
+databases:
+  - user: admin
+    password: admin
+    host: localhost
+    db_name: shopDev
+  - user: order
+    password: order
+    host: localhost
+    db_name: shopDev
+security:
+  jwt:
+    key: abc123
