@@ -1,14 +1,18 @@
 server:
   port: 8822
-databases:
-  - user: admin
-    password: admin
-    host: localhost
-    db_name: shopDev
-  - user: order
-    password: order
-    host: localhost
-    db_name: shopDev
-security:
-  jwt:
-    key: abc123
+mysql:
+  host: localhost
+  port: 3306
+  username: root
+  password: root
+  dbname: shopdevgo
+  maxIdleConns: 10
+  maxOpenConns: 100
+  connMaxLifetime: 3600
+log:
+  log_level: debug
+  file_log_name: "./storage/logs/log.001.log"
+  max_size: 500
+  max_backup: 3
+  max_age: 28
+  compress: true
