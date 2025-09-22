@@ -20,5 +20,5 @@ func Run() {
 
 	r := InitRouter()
 
-	r.Run(":2222")
+	r.Run(fmt.Sprintf(":%v", global.Config.Server.Port))
 }

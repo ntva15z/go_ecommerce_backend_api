@@ -3,3 +3,9 @@
 {"level":"INFO","time":"2025-09-22T12:55:57.245+0700","caller":"initialize/run.go:15","msg":"config ok","ok":"logger"}
 {"level":"INFO","time":"2025-09-22T12:55:57.275+0700","caller":"initialize/mysql.go:29","msg":"InitMysql Successfully"}
 {"level":"INFO","time":"2025-09-22T12:55:57.319+0700","caller":"initialize/redis.go:49","msg":"value score is::","score":"100"}
+{"level":"INFO","time":"2025-09-22T16:26:44.180+0700","caller":"initialize/run.go:15","msg":"config ok","ok":"logger"}
+{"level":"INFO","time":"2025-09-22T16:26:44.261+0700","caller":"initialize/mysql.go:29","msg":"InitMysql Successfully"}
+{"level":"INFO","time":"2025-09-22T16:26:44.344+0700","caller":"initialize/redis.go:49","msg":"value score is::","score":"100"}
+{"level":"INFO","time":"2025-09-22T16:27:45.227+0700","caller":"initialize/run.go:15","msg":"config ok","ok":"logger"}
+{"level":"INFO","time":"2025-09-22T16:27:45.236+0700","caller":"initialize/mysql.go:29","msg":"InitMysql Successfully"}
+{"level":"INFO","time":"2025-09-22T16:27:45.300+0700","caller":"initialize/redis.go:49","msg":"value score is::","score":"100"}
