@@ -1,17 +1,30 @@
 package service
 
-import "github.com/ntva15z/go-ecommerce-backend-api/internal/repo"
+import (
+	"github.com/ntva15z/go-ecommerce-backend-api/internal/repo"
+	"github.com/ntva15z/go-ecommerce-backend-api/pkg/response"
+)
 
-type UserService struct {
-	userRepo *repo.UserRepo
+type IUserService interface {
+	Register(email string, purpose string) int
 }
 
-func NewUserService() *UserService {
-	return &UserService{
-		userRepo: repo.NewUserRepo(),
+type userService struct {
+	userRepo repo.IUserRepository
+}
+
+// Register implements IUserService.
+func (us *userService) Register(email string, purpose string) int {
+	if us.userRepo.GetUserByEmail(email) {
+		return response.ErrCodeUserHasExists
 	}
+	return response.ErrCodeSuccess
 }
 
-func (us *UserService) GetInfoUser() string {
-	return us.userRepo.GetInfoUser()
+func NewUserService(
+	userRepo repo.IUserRepository,
+) IUserService {
+	return &userService{
+		userRepo: userRepo,
+	}
 }
