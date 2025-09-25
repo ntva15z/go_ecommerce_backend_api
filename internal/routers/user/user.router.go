@@ -21,6 +21,5 @@ func (u *UserRouter) InitUserRouter(Router *gin.RouterGroup) {
 	uRouterPrivate := Router.Group("/user")
 	{
 		uRouterPrivate.GET("/info")
-		uRouterPrivate.POST("/opt")
 	}
 }

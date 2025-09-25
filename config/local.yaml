@@ -2,12 +2,12 @@ server:
   port: 2222
   mode: "dev"
 redis:
-  host: localhost
-  port: 6779
+  host: redis
+  port: 6379
   password:
   database: 0
 mysql:
-  host: localhost
+  host: mysql
   port: 3306
   username: root
   password: root

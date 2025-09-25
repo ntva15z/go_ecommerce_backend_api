@@ -1,0 +1,54 @@
+services:
+  server:
+    container_name: crm.shopdev.server
+    build: .
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: always
+    ports:
+      - "2222:2222"
+    networks:
+      - crm.shopdev.network
+  mysql:
+    image: mysql:8.0.43
+    container_name: crm.shopdev.mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shopdevgo
+    ports:
+      - "2206:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - crm.shopdev.network
+  redis:
+    image: redis:7-alpine
+    container_name: crm.shopdev.redis
+    ports:
+      - "2229:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: always
+    networks:
+      - crm.shopdev.network
+
+volumes:
+  db_data:
+  redis_data:
+networks:
+  crm.shopdev.network:
+    driver: bridge
